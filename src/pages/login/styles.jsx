@@ -17,6 +17,7 @@ export const LeftSide = styled.div`
   img {
     width: 20rem;
     background-color: transparent;
+    margin-right: 1.5rem;
   }
 `;
 
