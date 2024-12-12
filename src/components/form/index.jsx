@@ -1,5 +1,5 @@
 import * as S from "./styles";
-import logo from "../../assets/cepa2.PNG";
+import logo from "../../assets/cepa2.png";
 export const Form = () => {
   return (
     <S.Form>

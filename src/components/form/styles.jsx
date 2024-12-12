@@ -13,7 +13,7 @@ export const Form = styled.form`
   padding: 2rem;
 
   img {
-    width: 10rem;
+    width: 9rem;
     margin-bottom: 1.5rem;
   }
 
