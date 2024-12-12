@@ -9,10 +9,11 @@ import { ASIA } from "../sections/asia";
 
 export const Header = () => {
   const [ative, setActive] = React.useState("NA");
-
   const navigate = useNavigate();
+
   const handleLogout = () => {
-    navigate("/");
+    localStorage.removeItem("logged"); // Remove a chave 'logged'
+    navigate("/"); // Redireciona para a página de login
   };
 
   return (
@@ -26,7 +27,7 @@ export const Header = () => {
         </S.Links>
         <S.Welcome>
           <p>Welcome! </p>
-          <LogoutOutlined onClick={handleLogout} />
+          <LogoutOutlined onClick={handleLogout} /> {/* Ícone de logout */}
         </S.Welcome>
       </S.Header>
       <S.HolderComponent>

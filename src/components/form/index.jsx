@@ -2,6 +2,7 @@ import * as S from "./styles";
 import logo from "../../assets/cepa.png";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+
 export const Form = () => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -11,14 +12,16 @@ export const Form = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const correctEmail = import.meta.env.VITE_LOGIN;
-    const correctPassword = import.meta.env.VITE_PASS;
+    const correctEmail = import.meta.env.VITE_LOGIN; // Defina isso nas variáveis de ambiente
+    const correctPassword = import.meta.env.VITE_PASS; // Defina isso nas variáveis de ambiente
 
+    // Verifica se o email e a senha estão corretos
     if (email === correctEmail && password === correctPassword) {
-      setError("");
-      navigate("/home");
+      localStorage.setItem("logged", "true"); // Define como 'true' após login bem-sucedido
+      setError(""); // Limpa qualquer mensagem de erro
+      navigate("/home"); // Redireciona para a página inicial
     } else {
-      setError(true);
+      setError("Invalid Email or Password"); // Exibe erro se as credenciais estiverem erradas
     }
   };
 
@@ -44,7 +47,7 @@ export const Form = () => {
         <S.Button>Login</S.Button>
       </div>
       <img src={logo} alt="cepa logo" />
-      {error && <span>Invalid Email or Password</span>}
+      {error && <span>{error}</span>} {/* Exibe mensagem de erro */}
     </S.Form>
   );
 };
