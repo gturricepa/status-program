@@ -33,7 +33,7 @@ export const Form = () => {
       <div>
         <S.Input
           text="email"
-          placeholder="Email"
+          placeholder="User"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
