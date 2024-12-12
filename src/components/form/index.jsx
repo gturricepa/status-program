@@ -12,16 +12,15 @@ export const Form = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const correctEmail = import.meta.env.VITE_LOGIN; // Defina isso nas variáveis de ambiente
-    const correctPassword = import.meta.env.VITE_PASS; // Defina isso nas variáveis de ambiente
+    const correctEmail = import.meta.env.VITE_LOGIN;
+    const correctPassword = import.meta.env.VITE_PASS;
 
-    // Verifica se o email e a senha estão corretos
     if (email === correctEmail && password === correctPassword) {
-      localStorage.setItem("logged", "true"); // Define como 'true' após login bem-sucedido
-      setError(""); // Limpa qualquer mensagem de erro
-      navigate("/home"); // Redireciona para a página inicial
+      localStorage.setItem("logged", "true");
+      setError("");
+      navigate("/home");
     } else {
-      setError("Invalid Email or Password"); // Exibe erro se as credenciais estiverem erradas
+      setError("Invalid Email or Password");
     }
   };
 
@@ -47,7 +46,7 @@ export const Form = () => {
         <S.Button>Login</S.Button>
       </div>
       <img src={logo} alt="cepa logo" />
-      {error && <span>{error}</span>} {/* Exibe mensagem de erro */}
+      {error && <span>{error}</span>}
     </S.Form>
   );
 };

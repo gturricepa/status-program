@@ -12,8 +12,8 @@ export const Header = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem("logged"); // Remove a chave 'logged'
-    navigate("/"); // Redireciona para a página de login
+    localStorage.removeItem("logged");
+    navigate("/");
   };
 
   return (
