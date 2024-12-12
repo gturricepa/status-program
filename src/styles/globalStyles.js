@@ -5,7 +5,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color:rgb(244, 247, 250);
+    background-color:rgb(252, 252, 252);
 
   }
   `;

@@ -1,18 +1,50 @@
 import * as S from "./styles";
-import logo from "../../assets/cepa2.png";
+import logo from "../../assets/cepa.png";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 export const Form = () => {
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [error, setError] = React.useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const correctEmail = import.meta.env.VITE_LOGIN;
+    const correctPassword = import.meta.env.VITE_PASS;
+
+    if (email === correctEmail && password === correctPassword) {
+      setError("");
+      navigate("/home");
+    } else {
+      setError(true);
+    }
+  };
+
   return (
-    <S.Form>
+    <S.Form onSubmit={handleSubmit}>
       <div>
         <h1>SAFE FLEET</h1>
         <h2>Status Program</h2>
       </div>
       <div>
-        <S.Input type="email" placeholder="Email" />
-        <S.Input type="password" placeholder="Password" />
+        <S.Input
+          text="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <S.Input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
         <S.Button>Login</S.Button>
       </div>
       <img src={logo} alt="cepa logo" />
+      {error && <span>Invalid Email or Password</span>}
     </S.Form>
   );
 };

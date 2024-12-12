@@ -11,11 +11,11 @@ export const LeftSide = styled.div`
   flex-direction: column;
   background-color: ${theme.colors.red};
   justify-content: center;
-  width: 50%;
+  width: 40%;
   height: 100%;
-  align-items: flex-end;
+  align-items: end;
   img {
-    width: 25rem;
+    width: 20rem;
     background-color: transparent;
   }
 `;
@@ -24,6 +24,6 @@ export const RightSide = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 100%;
   height: 100%;
 `;
