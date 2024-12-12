@@ -31,7 +31,6 @@ export const Links = styled.nav`
     color: ${theme.colors.white};
     text-decoration: none;
     font-size: 1.5rem;
-
     border-bottom: 2px solid white;
     transition: color 0.3s, background-color 0.3s, border-radius 0.3s;
     &:hover {
