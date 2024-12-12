@@ -2,6 +2,11 @@ import styled from "styled-components";
 import theme from "../../styles/theme";
 
 export const Header = styled.header`
+  img {
+    background-color: transparent;
+    width: 1.3rem;
+    margin-right: 3rem;
+  }
   width: 100%;
   height: 5rem;
   background-color: ${theme.colors.red};

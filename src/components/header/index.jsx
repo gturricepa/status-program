@@ -6,6 +6,7 @@ import { NA } from "../sections/na";
 import { EMEA } from "../sections/emea";
 import { APAC } from "../sections/apac";
 import { ASIA } from "../sections/asia";
+import logo from "../../assets/negativo.png";
 
 export const Header = () => {
   const [ative, setActive] = React.useState("NA");
@@ -19,6 +20,8 @@ export const Header = () => {
   return (
     <S.Holder>
       <S.Header>
+        <img src={logo} alt="logo"></img>
+
         <S.Links>
           <a onClick={() => setActive("NA")}>NA</a>
           <a onClick={() => setActive("EMEA")}>EMEA</a>
