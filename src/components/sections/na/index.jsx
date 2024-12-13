@@ -5,6 +5,7 @@ import * as S from "./styles";
 import Flag from "react-world-flags";
 import { getColor } from "../../../utils/util";
 import theme from "../../../styles/theme";
+import { Download } from "../../download";
 
 export const NA = () => {
   const [selectedServices, setSelectedServices] = useState(["ALL"]);
@@ -101,6 +102,7 @@ export const NA = () => {
             })}
           </tbody>
         </S.Table>
+        <Download data={filteredData} />
       </div>
     </S.Holder>
   );

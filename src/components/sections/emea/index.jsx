@@ -6,6 +6,7 @@ import Flag from "react-world-flags";
 import { getColor } from "../../../utils/util";
 import theme from "../../../styles/theme";
 import me from "../../../assets/middle-east.svg";
+import { Download } from "../../download";
 export const EMEA = () => {
   const [selectedServices, setSelectedServices] = useState(["ALL"]);
   const [filteredData, setFilteredData] = useState(naData);
@@ -142,6 +143,7 @@ export const EMEA = () => {
             })}
           </tbody>
         </S.Table>
+        <Download data={filteredData} />
       </div>
     </S.Holder>
   );
