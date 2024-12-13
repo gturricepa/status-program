@@ -17,7 +17,7 @@ export const Form = styled.form`
   }
 
   img {
-    width: 8rem;
+    width: 10rem;
     margin: 0;
     padding: 0;
   }

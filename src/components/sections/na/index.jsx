@@ -1,103 +1,53 @@
 import React, { useState, useEffect } from "react";
-import { AutoComplete } from "antd";
-import naData from "../../../data/na2.json";
+import { Select } from "antd";
+import naData from "../../../data/na.json";
 import * as S from "./styles";
 import Flag from "react-world-flags";
+import { getColor } from "../../../utils/util";
+import theme from "../../../styles/theme";
+
 export const NA = () => {
-  const [selectedService, setSelectedService] = useState("");
+  const [selectedServices, setSelectedServices] = useState(["ALL"]);
   const [filteredData, setFilteredData] = useState(naData);
 
-  const uniqueServices = [...new Set(naData.map((item) => item.Service))];
+  const uniqueServices = [
+    "ALL",
+    ...new Set(naData.map((item) => item.Service)),
+  ];
 
   const handleServiceChange = (value) => {
-    setSelectedService(value);
+    setSelectedServices(value);
   };
 
   useEffect(() => {
-    if (selectedService) {
-      const filtered = naData.filter(
-        (item) => item.Service === selectedService
+    if (selectedServices.length === 0 || selectedServices.includes("ALL")) {
+      setFilteredData(naData);
+    } else {
+      const filtered = naData.filter((item) =>
+        selectedServices.includes(item.Service)
       );
       setFilteredData(filtered);
-    } else {
-      setFilteredData(naData);
     }
-  }, [selectedService]);
-
-  useEffect(() => {
-    console.log("Service selected:", selectedService);
-  }, [selectedService]);
-
-  const getColor = (value) => {
-    if (value === "Yes")
-      return {
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        justifySelf: "center",
-        alignSelf: "center",
-        backgroundColor: "rgba(25, 134, 25, 0.084)",
-        color: "rgb(7, 93, 7)",
-        width: "50%",
-        borderRadius: "5px",
-        border: "1px solid rgb(7, 93, 7)",
-        textAlign: "center",
-      };
-    if (value === "No")
-      return {
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        justifySelf: "center",
-        alignSelf: "center",
-        backgroundColor: "rgba(255, 0, 0,  0.084)",
-        color: "rgb(218, 33, 33)",
-        width: "50%",
-        borderRadius: "5px",
-        border: "1px solid rgb(218, 33, 33)",
-        textAlign: "center",
-      };
-    if (value === "Not apply")
-      return {
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        justifySelf: "center",
-        alignSelf: "center",
-        backgroundColor: "rgba(128, 128, 128,  0.084)",
-        color: "rgb(128, 128, 128)",
-        width: "50%",
-        borderRadius: "5px",
-        border: "1px solid rgb(128, 128, 128)",
-      };
-    if (value === "December 2024")
-      return {
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        justifySelf: "center",
-        alignSelf: "center",
-        backgroundColor: "rgba(32, 91, 187, 0.084)",
-        color: "rgb(36, 68, 119)",
-        width: "50%",
-        borderRadius: "5px",
-        border: "1px solid rgb(36, 68, 119)",
-        textAlign: "center",
-      };
-    return {};
-  };
+  }, [selectedServices]);
 
   return (
     <S.Holder>
       <h1>North America</h1>
       <S.Filter>
-        <h2>Select a Service:</h2>
-        <AutoComplete
-          value={selectedService}
+        <h2>Select Services:</h2>
+        <Select
+          mode="multiple"
+          value={selectedServices}
           onChange={handleServiceChange}
-          style={{ marginLeft: "1rem", width: 300 }}
+          maxTagCount="responsive"
+          style={{
+            minWidth: "15rem",
+            width: "auto",
+            backgroundColor: "white",
+          }}
           options={uniqueServices.map((service) => ({
             value: service,
+            label: service,
           }))}
         />
       </S.Filter>
@@ -108,10 +58,10 @@ export const NA = () => {
             <tr>
               <th>Description</th>
               <th>
-                <Flag code="usa" height="50" />
+                <Flag code="usa" height="40" />
               </th>
               <th>
-                <Flag code="ca" height="50" />
+                <Flag code="ca" height="40" />
               </th>
             </tr>
           </thead>
@@ -136,7 +86,9 @@ export const NA = () => {
                   )}
 
                   <tr>
-                    <td>{item.Description}</td>
+                    <td style={{ color: theme.colors.black }}>
+                      {item.Description}
+                    </td>
                     <td>
                       <p style={getColor(item.USA)}>{item.USA}</p>
                     </td>

@@ -1,5 +1,5 @@
 import * as S from "./styles";
-import logo from "../../assets/cepa.png";
+import logo from "../../assets/cepa23.png";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
