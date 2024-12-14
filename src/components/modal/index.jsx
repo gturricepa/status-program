@@ -137,11 +137,11 @@ export const ModalData = ({ open, onClose, data, country }) => {
                     borderRadius: "5px",
                   }}
                 >
-                  <p style={{ fontSize: "1.3rem" }}>{value}:</p>
+                  <p style={{ fontSize: "1.2rem" }}>{value}:</p>
                   <p
                     style={{
                       marginLeft: "5px",
-                      fontSize: "1rem",
+                      fontSize: "1.2rem",
                     }}
                   >
                     {countOfUniqueValues[value]}
