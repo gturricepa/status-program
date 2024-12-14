@@ -1,3 +1,3 @@
-export const ASIA = () => {
-  return <>ASIA</>;
+export const OTHERS = () => {
+  return <>OTHESR</>;
 };

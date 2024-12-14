@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { NA } from "../sections/na";
 import { EMEA } from "../sections/emea";
 import { APAC } from "../sections/apac";
-import { ASIA } from "../sections/asia";
+import { OTHERS } from "../sections/asia";
 import logo from "../../assets/negativo.png";
 
 export const Header = () => {
@@ -26,7 +26,7 @@ export const Header = () => {
           <a onClick={() => setActive("NA")}>NA</a>
           <a onClick={() => setActive("EMEA")}>EMEA</a>
           <a onClick={() => setActive("APAC")}>APAC</a>
-          <a onClick={() => setActive("ASIA")}>ASIA</a>
+          <a onClick={() => setActive("OTHERS")}>OTHERS</a>
         </S.Links>
         <S.Welcome>
           <p>Welcome! </p>
@@ -37,7 +37,7 @@ export const Header = () => {
         {ative === "NA" && <NA />}
         {ative === "EMEA" && <EMEA />}
         {ative === "APAC" && <APAC />}
-        {ative === "ASIA" && <ASIA />}
+        {ative === "OTHERS" && <OTHERS />}
       </S.HolderComponent>
     </S.Holder>
   );
