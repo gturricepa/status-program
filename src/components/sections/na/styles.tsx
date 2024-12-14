@@ -39,7 +39,7 @@ export const Table = styled.table`
   }
 
   th {
-    font-weight: 600;
+    font-weight: 400;
     color: #333;
     background-color: ${theme.colors.lightGray};
   }
@@ -66,8 +66,6 @@ export const Filter = styled.div`
   margin-top: 1rem;
   display: flex;
   align-items: center;
-  background-color: white;
-
   .ant-select-selection-wrap {
     width: 25rem;
     margin-right: 1rem;

@@ -1,5 +1,14 @@
 export const getColor = (value) => {
-  if (value === "Yes")
+  if (
+    [
+      "Yes",
+      "TBD",
+      "CEPA",
+      "CR&M",
+      "Yes, via Leasys",
+      "Yes, via Ayvens",
+    ].includes(value)
+  )
     return {
       display: "flex",
       justifyContent: "center",

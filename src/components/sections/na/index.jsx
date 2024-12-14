@@ -6,10 +6,13 @@ import Flag from "react-world-flags";
 import { getColor } from "../../../utils/util";
 import theme from "../../../styles/theme";
 import { Download } from "../../download";
-
+import { ModalData } from "../../modal";
+import { PlusCircleOutlined } from "@ant-design/icons";
 export const NA = () => {
   const [selectedServices, setSelectedServices] = useState(["ALL"]);
   const [filteredData, setFilteredData] = useState(naData);
+  const [open, setOpen] = useState(false);
+  const [country, setCountry] = useState([]);
 
   const uniqueServices = [
     "ALL",
@@ -31,8 +34,22 @@ export const NA = () => {
     }
   }, [selectedServices]);
 
+  const handleOpenModal = ({ country }) => {
+    setCountry(country);
+    setOpen(true);
+  };
+  const handleCloseModal = () => {
+    setOpen(false);
+  };
   return (
     <S.Holder>
+      <ModalData
+        open={open}
+        onClose={handleCloseModal}
+        data={filteredData}
+        country={country}
+      />
+
       <h1>North America</h1>
       <S.Filter>
         <h2>Select Services:</h2>
@@ -54,15 +71,75 @@ export const NA = () => {
       </S.Filter>
 
       <div>
+        <p
+          style={{
+            color: "grey",
+            fontStyle: "italic",
+            fontSize: ".8rem",
+            display: "flex",
+            alignSelf: "flex-end",
+            justifySelf: "flex-end",
+          }}
+        ></p>
         <S.Table>
           <thead>
             <tr>
-              <th>Description</th>
-              <th>
-                <Flag code="usa" height="40" />
+              <th>Module Description</th>
+
+              <th
+                style={{
+                  cursor: "pointer",
+                  position: "relative",
+                }}
+                onClick={() =>
+                  handleOpenModal({
+                    country: ["USA", "United States Of America"],
+                  })
+                }
+              >
+                <span style={{ position: "relative" }}>
+                  <Flag code="usa" height="40" />
+                  <span
+                    style={{
+                      position: "relative",
+                      background: "white",
+                      borderRadius: "50%",
+                      fontSize: "1rem",
+                      right: "10px",
+                    }}
+                  >
+                    {" "}
+                    <PlusCircleOutlined />
+                  </span>
+                </span>
               </th>
-              <th>
-                <Flag code="ca" height="40" />
+
+              <th
+                style={{
+                  cursor: "pointer",
+                  position: "relative",
+                }}
+                onClick={() =>
+                  handleOpenModal({
+                    country: ["CA", "Canada"],
+                  })
+                }
+              >
+                <span style={{ position: "relative" }}>
+                  <Flag code="ca" height="40" />
+                  <span
+                    style={{
+                      position: "relative",
+                      background: "white",
+                      borderRadius: "50%",
+                      fontSize: "1rem",
+                      right: "10px",
+                    }}
+                  >
+                    {" "}
+                    <PlusCircleOutlined />
+                  </span>
+                </span>
               </th>
             </tr>
           </thead>
