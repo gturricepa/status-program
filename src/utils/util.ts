@@ -40,7 +40,7 @@ export const getColor = (value) => {
       border: "1px solid rgb(218, 33, 33)",
       textAlign: "center",
     };
-  if (value === "Not apply")
+  if (value === "Not applicable")
     return {
       display: "flex",
       justifyContent: "center",

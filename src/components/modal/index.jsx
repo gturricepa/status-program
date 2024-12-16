@@ -15,13 +15,13 @@ export const ModalData = ({ open, onClose, data, country }) => {
   }, [code, data]);
 
   const countOfDescritons = filteredData.filter(
-    (item) => item[code] !== "Not apply"
+    (item) => item[code] !== "Not applicable"
   ).length;
 
   const uniqueValues = [
     ...new Set(
       filteredData
-        .filter((item) => item[code] !== "Not apply")
+        .filter((item) => item[code] !== "Not applicable")
         .map((item) => item[code])
     ),
   ];
@@ -115,7 +115,7 @@ export const ModalData = ({ open, onClose, data, country }) => {
                   display: "Flex",
                 }}
               >
-                Total of Appliable Modules: {countOfDescritons}
+                Total of Applicable Modules: {countOfDescritons}
               </p>{" "}
             </h3>
           </div>

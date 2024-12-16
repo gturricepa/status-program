@@ -23,6 +23,8 @@ export const APAC = () => {
     setSelectedServices(value);
   };
 
+  console.log(naData);
+
   useEffect(() => {
     if (selectedServices.length === 0 || selectedServices.includes("ALL")) {
       setFilteredData(naData);
@@ -94,7 +96,7 @@ export const APAC = () => {
                 }}
                 onClick={() =>
                   handleOpenModal({
-                    country: ["IN", "India"],
+                    country: ["IND", "India"],
                   })
                 }
               >
@@ -118,6 +120,7 @@ export const APAC = () => {
           </thead>
           <tbody>
             {filteredData.map((item, index) => {
+              console.log(item.IN);
               const isDifferentService =
                 index === 0 || item.Service !== filteredData[index - 1].Service;
 
@@ -141,7 +144,7 @@ export const APAC = () => {
                       {item.Description}
                     </td>
                     <td>
-                      <p style={getColor(item.IN)}>{item.IN}</p>
+                      <p style={getColor(item.IND)}>{item.IND}</p>
                     </td>
                   </tr>
                 </React.Fragment>
