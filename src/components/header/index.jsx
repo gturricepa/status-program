@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { NA } from "../sections/na";
 import { EMEA } from "../sections/emea";
 import { APAC } from "../sections/apac";
-import { OTHERS } from "../sections/asia";
+import { OTHERS } from "../sections/others";
 import logo from "../../assets/negativo.png";
 
 export const Header = () => {

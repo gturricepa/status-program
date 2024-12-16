@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Modal } from "antd";
 import React from "react";
-import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, Tooltip } from "recharts";
 
 export const ModalData = ({ open, onClose, data, country }) => {
   const [filteredData, setFilteredData] = React.useState([]);
@@ -40,22 +40,11 @@ export const ModalData = ({ open, onClose, data, country }) => {
     ),
   ];
 
-  const pieData = uniqueValues.map((value) => {
+  const barData = uniqueValues.map((value) => {
     const count = countOfUniqueValues[value];
     const percentage = (count / countOfDescritons) * 100;
     return { name: value, value: count, percentage };
   });
-
-  const COLORS = [
-    "#32cd32a7",
-    "#465ab4be",
-    "#ffd900c9",
-    "#b12be2b0",
-    "#ff4400c1",
-    "#651550c2",
-    "#156465c2",
-    "#5e6515c2",
-  ];
 
   return (
     <Modal open={open} onCancel={onClose} footer={null} width={1100}>
@@ -166,35 +155,20 @@ export const ModalData = ({ open, onClose, data, country }) => {
               alignItems: "center",
             }}
           >
-            <div style={{ textAlign: "center" }}>
-              <PieChart width={300} height={300}>
-                <Pie
-                  data={pieData}
-                  dataKey="value"
-                  nameKey="name"
-                  cx="50%"
-                  cy="50%"
-                  innerRadius={60}
-                  outerRadius={80}
-                  fill="#8884d8"
-                  label
-                >
-                  {pieData.map((entry, index) => (
-                    <Cell
-                      key={`cell-${index}`}
-                      fill={COLORS[index % COLORS.length]}
-                    />
-                  ))}
-                </Pie>
+            <div style={{ textAlign: "center", marginTop: "1rem" }}>
+              <BarChart width={500} height={300} data={barData}>
+                {/* <CartesianGrid strokeDasharray="3 3" /> */}
+                <XAxis dataKey="name" />
+                <YAxis />
                 <Tooltip
                   formatter={(value) =>
-                    `${value} (${pieData
+                    `${value} (${barData
                       .find((entry) => entry.value === value)
                       .percentage.toFixed(2)}%)`
                   }
                 />
-                <Legend />
-              </PieChart>
+                <Bar dataKey="value" fill="#D71600" />
+              </BarChart>
             </div>
           </div>
         </div>
