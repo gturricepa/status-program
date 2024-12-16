@@ -244,13 +244,14 @@ export const EMEA = () => {
               >
                 <div
                   style={{
-                    border: "1px solid darkgrey",
+                    // border: "1px solid darkgrey",
                     borderRadius: "5px",
                     width: "7rem",
                     height: "3rem",
                     justifyContent: "center",
                     display: "flex",
                     marginBottom: "7px",
+                    backgroundColor: "#D71600",
                   }}
                 >
                   <span
@@ -259,6 +260,7 @@ export const EMEA = () => {
                       alignSelf: "center",
                       justifySelf: "center",
                       fontSize: ".9rem",
+                      color: "white",
                     }}
                   >
                     Middle East
