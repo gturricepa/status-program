@@ -5,7 +5,7 @@ import * as S from "./styles";
 import Flag from "react-world-flags";
 import { getColor } from "../../../utils/util";
 import theme from "../../../styles/theme";
-import me from "../../../assets/middle-east.svg";
+// import me from "../../../assets/middle-east.svg";
 import { Download } from "../../download";
 import { ModalData } from "../../modal";
 import { PlusCircleOutlined } from "@ant-design/icons";
@@ -232,8 +232,9 @@ export const EMEA = () => {
               </th> */}
               <th
                 style={{
+                  display: "flex",
                   cursor: "pointer",
-                  position: "relative",
+                  justifyContent: "center",
                 }}
                 onClick={() =>
                   handleOpenModal({
@@ -241,37 +242,28 @@ export const EMEA = () => {
                   })
                 }
               >
-                <span style={{}}>
+                <div
+                  style={{
+                    border: "1px solid darkgrey",
+                    borderRadius: "5px",
+                    width: "7rem",
+                    height: "3rem",
+                    justifyContent: "center",
+                    display: "flex",
+                    marginBottom: "7px",
+                  }}
+                >
                   <span
                     style={{
-                      position: "relative",
-                      background: "white",
-                      borderRadius: "50%",
-                      fontSize: "1rem",
-                      left: "30px",
-                      zIndex: "555",
+                      display: "flex",
+                      alignSelf: "center",
+                      justifySelf: "center",
+                      fontSize: ".9rem",
                     }}
                   >
-                    {" "}
-                    <PlusCircleOutlined />
+                    Middle East
                   </span>
-                  <img
-                    style={{ position: "relative", width: "4rem" }}
-                    src={me}
-                    alt="me"
-                  ></img>
-                  <span
-                    style={{
-                      fontWeight: "100",
-                      fontSize: ".7rem",
-                      padding: "0",
-                      margin: "0",
-                      marginTop: "5px",
-                    }}
-                  >
-                    Middle Eeast
-                  </span>
-                </span>
+                </div>
               </th>
             </tr>
           </thead>

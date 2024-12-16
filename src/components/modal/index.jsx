@@ -40,10 +40,18 @@ export const ModalData = ({ open, onClose, data, country }) => {
     ),
   ];
 
+  const getColor = (value) => {
+    if (value === "December 2024") {
+      return "#FF0000"; // Vermelho
+    } else {
+      return "#0000FF"; // Azul
+    }
+  };
+
   const barData = uniqueValues.map((value) => {
     const count = countOfUniqueValues[value];
     const percentage = (count / countOfDescritons) * 100;
-    return { name: value, value: count, percentage };
+    return { name: value, value: count, percentage, color: getColor(value) };
   });
 
   return (
