@@ -11,10 +11,10 @@ export const Form = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(email, password);
 
     const correctEmail = import.meta.env.VITE_LOGIN;
     const correctPassword = import.meta.env.VITE_PASS;
+    console.log(correctEmail, correctPassword);
 
     if (email === correctEmail && password === correctPassword) {
       localStorage.setItem("logged", "true");
