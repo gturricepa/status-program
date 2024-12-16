@@ -9,6 +9,7 @@ export const getColor = (value) => {
       "Yes, via Ayvens",
       "Yes/Cash Allowance",
       "Yes/New Hires",
+      "Grey Fleet",
     ].includes(value)
   )
     return {
