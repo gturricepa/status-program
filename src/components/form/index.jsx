@@ -28,7 +28,7 @@ export const Form = () => {
     <S.Form onSubmit={handleSubmit}>
       <div>
         <h1>SAFE FLEET</h1>
-        <h2>Status Program</h2>
+        <h2>Program Status</h2>
       </div>
       <div>
         <S.Input
