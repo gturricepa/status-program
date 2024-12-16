@@ -8,6 +8,7 @@ export const getColor = (value) => {
       "Yes, via Leasys",
       "Yes, via Ayvens",
       "Yes/Cash Allowance",
+      "Yes/New Hires",
     ].includes(value)
   )
     return {

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Modal } from "antd";
 import React from "react";
-import { BarChart, Bar, XAxis, YAxis, Tooltip } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, Cell } from "recharts";
 
 export const ModalData = ({ open, onClose, data, country }) => {
   const [filteredData, setFilteredData] = React.useState([]);
@@ -39,12 +39,20 @@ export const ModalData = ({ open, onClose, data, country }) => {
         .map((item) => item.Service)
     ),
   ];
-
   const getColor = (value) => {
-    if (value === "December 2024") {
-      return "#FF0000"; // Vermelho
+    const colorMap = {
+      "December 2024": "#205bbba4",
+      "Q1 - Q2 2025": "#205bbba4",
+      2024: "#205bbba4",
+      "Q1 2025": "#205bbba4",
+      "Q4 2024": "#205bbba4",
+      2025: "#205bbba4",
+    };
+
+    if (colorMap[value]) {
+      return colorMap[value];
     } else {
-      return "#0000FF"; // Azul
+      return "#198619a8";
     }
   };
 
@@ -123,7 +131,6 @@ export const ModalData = ({ open, onClose, data, country }) => {
             </p>
 
             <div style={{ display: "flex", flexWrap: "wrap" }}>
-              {" "}
               {uniqueValues.map((value, index) => (
                 <div
                   key={index}
@@ -164,7 +171,7 @@ export const ModalData = ({ open, onClose, data, country }) => {
             }}
           >
             <div style={{ textAlign: "center", marginTop: "1rem" }}>
-              <BarChart width={500} height={300} data={barData}>
+              <BarChart width={700} height={300} data={barData}>
                 {/* <CartesianGrid strokeDasharray="3 3" /> */}
                 <XAxis dataKey="name" />
                 <YAxis />
@@ -175,7 +182,11 @@ export const ModalData = ({ open, onClose, data, country }) => {
                       .percentage.toFixed(2)}%)`
                   }
                 />
-                <Bar dataKey="value" fill="#D71600" />
+                <Bar dataKey="value">
+                  {barData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={entry.color} />
+                  ))}
+                </Bar>
               </BarChart>
             </div>
           </div>
